@@ -1,11 +1,19 @@
-import { View, Text } from "react-native"
+
+import { View, TextInput, Button} from "react-native"
 
 function TestView() {
   return (
-    <View>
-        <Text>Welcome to the second screen</Text>
+    <View style={{ flex: 1, justifyContent: 'center' }}>
+        <TextInput style={{ textAlign:"center" }}
+            placeholder='Ajouter une tâche'
+          />
+        <View style={{alignSelf: 'center', width:100, margin:20}}>
+          <Button
+            title='Save' />
+        </View>
     </View>
   )
 }
 
 export default TestView;
+

@@ -11,8 +11,9 @@ function MyTabs() {
   return (
     <Tab.Navigator
       initialRouteName="Feed"
-      activeColor="#e91e63"
-      barStyle={{ backgroundColor: 'tomato' }}
+      activeColor="#000000"
+      barStyle={{ backgroundColor: 'goldenrod' }}
+      
     >
       <Tab.Screen
         name="Feed"
@@ -34,16 +35,16 @@ function MyTabs() {
           ),
         }}
       />
-      {/* <Tab.Screen
+      <Tab.Screen
         name="Profile"
-        component={HomeView}
+        component={End}
         options={{
           tabBarLabel: 'Profile',
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="account" color={color} size={26} />
           ),
         }}
-      /> */}
+      />
     </Tab.Navigator>
   );
 }
