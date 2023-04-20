@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar"
 import { useState } from "react"
-import { Button, StyleSheet, Text, Input, Icon, View, ImageBackground, TouchableOpacity, TextInput } from "react-native"
+import { Button, StyleSheet, Text, View, ImageBackground, TouchableOpacity, TextInput } from "react-native"
 import { IconButton, MD3Colors } from 'react-native-paper';
 import {Ionicons} from '@expo/vector-icons/';
 
@@ -64,14 +64,6 @@ const HomeView = ({ navigation }) => {
             ))}
         </View>
       </View>
-      {/* <View style={styles.bottomTab} >
-        <Button
-          onPress={() => { navigation.navigate('Test') }}
-          title='test' />
-        <Button
-          onPress={() => { navigation.navigate('End') }}
-          title='to end' />
-      </View> */}
       <StatusBar style='auto'/>
     </View>
   )
@@ -86,12 +78,6 @@ const styles = StyleSheet.create({
     flex: 1,
     borderRadius: 25,
   },
-  // listInput :{
-  //   padding: 20,
-  //   borderRadius: 25,
-  //   width: 300,
-  //   backgroundColor: 'red',
-  // },
   taskContainer:{
     flexDirection: 'row',
 
@@ -136,76 +122,3 @@ const styles = StyleSheet.create({
 
 
 
-
-
-
-
-
-
-
-
-// import { StatusBar } from "expo-status-bar"
-// import { useState } from "react"
-// import { Button, StyleSheet, Text, TextInput, View, ImageBackground } from "react-native"
-
-
-// const HomeView = (add) => {
-//     const [addTodo, setAddTodo] = useState('')
-
-//     const handleAdd = () => {
-//       add(addTodo);
-//       setAddTodo('');
-//     };
-
-//     return (
-//         <View style={styles.containerFlex}>
-//             <View style={styles.titreFlexItem}>
-//             <ImageBackground source={require('../assets/liste.png')} style={{ width: 500, height: 250 }} >
-//                 <Text style={{fontSize:30, position: 'absolute', bottom:15, left:40 }}>Liste ToDO</Text>
-//             </ImageBackground>
-//             </View>
-//             <View style={styles.MyListe}>
-//                 <Text>{addTodo}</Text>
-//                 <TextInput
-//                     placeholder='Ajouter une tâche'
-//                     onChangeText={text => setAddTodo(text)}
-//                 />
-//                 <Button
-//                     title="Ajouter"
-//                     onPress={handleAdd}/>
-//             </View>
-//             <View style={styles.bottomTab} >
-//             </View>
-
-//             <StatusBar style="auto" />
-//         </View>
-//     )
-// }
-
-// export default HomeView
-
-
-// const styles = StyleSheet.create({
-//     container: {
-//       flex: 1,
-//       backgroundColor: 'red',
-//       alignItems: 'center',
-//       justifyContent: 'center',
-//     },
-//     containerFlex: {
-//       flex: 1,
-//     },
-//     titreFlexItem: {
-//       flex: 2.5,
-//       justifyContent: 'flex-end',
-//     },
-//     MyListe: {
-//       flex: 5,
-//       justifyContent: 'center',
-//       alignItems: 'center'
-//     },
-//     bottomTab: {
-//       flex: 0.5,
-//       backgroundColor: '#ffd700'
-//     },
-//   });

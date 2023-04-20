@@ -1,30 +1,36 @@
 import * as FileSystem from 'expo-file-system'
-import { readAsStringAsync} from 'expo-file-system'
+import { readAsStringAsync } from 'expo-file-system'
 import * as MailComposer from 'expo-mail-composer'
 
+
 export const writeFile = async (data) => {
-    // verifier le contenu de data 
     try {
-        // verifier si le fichier est vide 
-        const fileInfo = await FileSystem.getInfoAsync(FileSystem.documentDirectory + 'file.txt')
+        const fileInfo = await FileSystem.getInfoAsync(FileSystem.documentDirectory + 'MyFile.txt');
         if (fileInfo.exists) {
-            // lire le fichier, et recuperer les donnees existantes
-            const fileContent = await readAsStringAsync(FileSystem.documentDirectory + 'file.txt')
-            // trouver un moyen pour ajouter le contenu passe en param au contenu existant
+            const fileContent = await readAsStringAsync(FileSystem.documentDirectory + 'MyFile.txt');
+            const newContent = fileContent + data;
+            await FileSystem.writeAsStringAsync(FileSystem.documentDirectory + 'MyFile.txt', newContent);
+            console.log('Le fichier a été mis à jour avec succès !');
         } else {
-            await FileSystem.writeAsStringAsync(FileSystem.documentDirectory + 'file.txt', data)
+            await FileSystem.writeAsStringAsync(FileSystem.documentDirectory + 'MyFile.txt', data);
+            console.log('Le fichier a été créé avec succès !');
         }
     } catch (error) {
-        console.log('erreur non catche writefile util.js: ', error)
+        console.log('erreur non catchée writefile util.js: ', error);
     }
-}
+};
+
+
+// cette fonction permet de déterminer si un fichier est vide ou non. 
+// Elle peut être utilisée, par exemple, 
+// pour éviter d'ajouter des données à un fichier vide ou pour vérifier si un fichier existe avant de tenter de le lire ou de l'écrire.
 
 export const isFileEmpty = async (fileUri) => {
     try {
-            const fileInfo = await FileSystem.getInfoAsync(fileUri);
-            console.log('isFileEmpty: ', fileInfo)
-            if (fileInfo.exists === true && fileInfo.size > 0) return false
-            return true
+        const fileInfo = await FileSystem.getInfoAsync(fileUri);
+        console.log('isFileEmpty: ', fileInfo)
+        if (fileInfo.exists === true && fileInfo.size > 0) return false
+        return true
     } catch (error) {
         return true
     }
@@ -41,30 +47,29 @@ export const emptyFile = async (fileUri) => {
     }
 }
 
-const getFile = async (fileUri) => {
-    return await FileSystem.getInfoAsync(fileUri);
-}
-
-const getFileContent = async (fileUri) => {
-    return await FileSystem.readAsStringAsync(fileUri);
-}
-
-export const sendFileByEmail = async (recipient, fileUri) => {
+export const sendFileByEmail = async (fileUri, recipient) => {
     let _recipient = recipient ? recipient : 'default@mail.com';
-    try {
-        const fileInfo = await getFile(fileUri)
-        console.log('file info before mail is sent: ', fileInfo);
-        const fileContent = await getFileContent(fileUri);
-        console.log('file content about to be sent by email: ', fileContent)
-    } catch(err) {
-        console.log('file does not exist: ', fileInfo)
-    }
 
     const options = {
         attachments: [fileUri],
         recipients: [_recipient],
         subject: 'Objet du mail'
     }
-
+    
     await MailComposer.composeAsync(options)
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
