@@ -4,9 +4,9 @@ ToDo list mobile app creation
 
 Maquette : https://www.figma.com/proto/f6CH37SOwkOg8fNsAUqXfT/Untitled?node-id=0%3A1
 
-j'ai crée cette application TODO list en react native .
-compris 3 pages : Home , test et profile 
-j'ai installé les bibliotique suivants : 
+I created this TODO list app in react native.
+including 3 pages: Home, test and profile
+I installed the following libraries:
         "expo"
         "expo-file-system"
         "expo-mail-composer"
