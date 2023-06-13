@@ -3,7 +3,7 @@ import { View, TextInput, Button} from "react-native"
 import { writeFile, isFileEmpty, emptyFile, sendFileByEmail} from '../Component/util';
 import * as FileSystem from 'expo-file-system';
 import { Alert } from 'react-native'
-function TestView() {
+function Note() {
   const handleSave = async (data) => {
     try {
       const fileUri = FileSystem.documentDirectory + 'MyFile.txt';
@@ -58,5 +58,5 @@ function TestView() {
   )
 }
 
-export default TestView;
+export default Note;
 

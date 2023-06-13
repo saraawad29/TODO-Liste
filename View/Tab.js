@@ -2,8 +2,9 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import HomeView from './HomeView';
-import TestView from './testView';
+import Note from './Note';
 import End from './end';
+import { Notes } from '@mui/icons-material';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -27,9 +28,9 @@ function MyTabs() {
       />
       <Tab.Screen
         name="Notifications"
-        component={TestView}
+        component={Note}
         options={{
-          tabBarLabel: 'Test',
+          tabBarLabel: 'Note',
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="bell" color={color} size={26} />
           ),
